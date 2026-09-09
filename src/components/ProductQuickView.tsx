@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, Star, ShoppingBag, Check, Leaf } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Star, ShoppingBag, Check, Leaf, Tag } from 'lucide-react';
 import { CurrencyCode, LanguageCode, Product } from '../types';
 import { ProductVisual } from './ProductVisual';
 import { formatCurrency } from '../data/currencies';
@@ -28,8 +28,20 @@ export const ProductQuickView: React.FC<ProductQuickViewProps> = ({
   const [selectedColor, setSelectedColor] = useState<string | undefined>(
     product.colors ? product.colors[0].name : undefined
   );
+  const [activeImage, setActiveImage] = useState<string | undefined>(
+    product.imageUrl || (product.galleryImages && product.galleryImages.length > 1 ? product.galleryImages[1] : undefined)
+  );
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+
+  useEffect(() => {
+    if (product) {
+      setSelectedSize(product.sizes ? product.sizes[0] : undefined);
+      setSelectedColor(product.colors ? product.colors[0].name : undefined);
+      // Ensure image 2 (product.imageUrl) is selected by default as main
+      setActiveImage(product.imageUrl || (product.galleryImages && product.galleryImages.length > 1 ? product.galleryImages[1] : undefined));
+    }
+  }, [product]);
 
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
 
@@ -60,15 +72,66 @@ export const ProductQuickView: React.FC<ProductQuickViewProps> = ({
           <X className="w-5 h-5" />
         </button>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-start">
           {/* Visual Side */}
-          <div className="bg-gray-100 rounded-xl aspect-square flex items-center justify-center p-6 relative border border-gray-200/60">
-            {product.badge && (
-              <span className="absolute top-3 left-3 bg-gray-900 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
-                {product.badge}
-              </span>
+          <div className="space-y-3">
+            <div className="bg-gray-100 rounded-xl aspect-square flex items-center justify-center p-4 relative border border-gray-200/60 overflow-hidden">
+              {product.badge && (
+                <span className="absolute top-3 left-3 bg-gray-900 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs z-10">
+                  {product.badge}
+                </span>
+              )}
+              {product.sku && (
+                <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-xs text-gray-600 font-mono text-[10px] px-2 py-0.5 rounded border border-gray-200 shadow-2xs z-10 flex items-center gap-1">
+                  <Tag className="w-3 h-3 text-gray-400" />
+                  {product.sku}
+                </span>
+              )}
+              {activeImage ? (
+                <img
+                  src={activeImage}
+                  alt={product.name}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-contain max-h-full rounded-md transition-transform duration-300 hover:scale-105"
+                />
+              ) : (
+                <ProductVisual product={product} size="lg" />
+              )}
+            </div>
+
+            {/* Gallery Thumbnails */}
+            {product.galleryImages && product.galleryImages.length > 1 && (
+              <div className="flex items-center gap-2">
+                {product.galleryImages.map((img, idx) => {
+                  const isMain = idx === 1; // 2nd image is main
+                  const isCurrent = activeImage === img;
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setActiveImage(img)}
+                      className={`relative w-16 h-16 rounded-lg border-2 overflow-hidden bg-gray-50 transition p-1 cursor-pointer ${
+                        isCurrent
+                          ? 'border-blue-600 ring-2 ring-blue-100'
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                      title={`View image ${idx + 1}`}
+                    >
+                      <img
+                        src={img}
+                        alt={`${product.name} shot ${idx + 1}`}
+                        className="w-full h-full object-contain"
+                      />
+                      {isMain && (
+                        <span className="absolute bottom-0.5 right-0.5 bg-blue-600 text-white text-[8px] font-bold px-1 py-0.2 rounded shadow-2xs">
+                          Main
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             )}
-            <ProductVisual product={product} size="lg" />
           </div>
 
           {/* Info Side */}

@@ -37,6 +37,9 @@ export interface Product {
   colors?: { name: string; hex: string; bgClass: string }[];
   inStock: boolean;
   ecoCertified?: boolean;
+  sku?: string;
+  imageUrl?: string;
+  galleryImages?: string[];
 }
 
 export interface CartItem {

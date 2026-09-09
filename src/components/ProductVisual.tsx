@@ -15,6 +15,19 @@ export const ProductVisual: React.FC<ProductVisualProps> = ({
   const isLarge = size === 'lg';
   const iconSizeClass = isLarge ? 'w-32 h-32' : size === 'sm' ? 'w-16 h-16' : 'w-24 h-24';
 
+  if (product.imageUrl) {
+    return (
+      <div className={`relative flex items-center justify-center w-full h-full p-1.5 ${className}`}>
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          referrerPolicy="no-referrer"
+          className="w-full h-full object-contain max-h-full rounded-md transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+    );
+  }
+
   const renderGraphic = () => {
     switch (product.imageType) {
       case 'shirt':
@@ -158,19 +171,32 @@ export const ProductVisual: React.FC<ProductVisualProps> = ({
               {/* Hoodie Body */}
               <path
                 d="M30 20 C36 28, 64 28, 70 20 L88 32 L78 50 L68 44 L68 84 L32 84 L32 44 L22 50 L12 32 Z"
-                fill="#1E293B"
-                stroke="#0F172A"
+                fill="#111827"
+                stroke="#030712"
                 strokeWidth="2"
               />
               {/* Hood interior */}
-              <path d="M36 21 C42 12, 58 12, 64 21 C58 28, 42 28, 36 21 Z" fill="#334155" />
+              <path d="M36 21 C42 12, 58 12, 64 21 C58 28, 42 28, 36 21 Z" fill="#1F2937" />
+
+              {/* Right Sleeve Google Color Stripes */}
+              <path d="M72 37 L79 41" stroke="#4285F4" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M71 40 L78 44" stroke="#EA4335" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M70 43 L77 47" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M69 46 L76 50" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" />
+
+              {/* Left Sleeve Google Color Stripes */}
+              <path d="M28 37 L21 41" stroke="#4285F4" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M29 40 L22 44" stroke="#EA4335" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M30 43 L23 47" stroke="#FBBC04" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M31 46 L24 50" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" />
+
               {/* Kangaroo Pocket */}
-              <path d="M37 60 L63 60 L61 78 L39 78 Z" fill="#0F172A" stroke="#334155" strokeWidth="1.5" />
-              {/* Drawstrings */}
-              <line x1="46" y1="26" x2="46" y2="42" stroke="#CBD5E1" strokeWidth="2" strokeLinecap="round" />
-              <line x1="54" y1="26" x2="54" y2="39" stroke="#CBD5E1" strokeWidth="2" strokeLinecap="round" />
-              {/* Cloud symbol */}
-              <circle cx="50" cy="46" r="3" fill="#4285F4" />
+              <path d="M37 60 L63 60 L61 78 L39 78 Z" fill="#1F2937" stroke="#374151" strokeWidth="1.5" />
+              {/* White Drawstrings */}
+              <line x1="46" y1="24" x2="46" y2="44" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+              <line x1="54" y1="24" x2="54" y2="41" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
+              {/* Subtle Google Hem Label */}
+              <rect x="62" y="79" width="4" height="4" fill="#FFFFFF" rx="0.5" />
             </svg>
           </div>
         );

@@ -4,9 +4,10 @@ export const INITIAL_PRODUCTS: Product[] = [
   // 1. Google Hoodies & Outerwear
   {
     id: 'prod-hoodie-05',
-    name: 'Google Cloud Architect Heavyweight Hoodie',
-    brand: 'Google Cloud',
-    brandCategory: 'Google Cloud',
+    sku: 'GGOEGXXX2631',
+    name: 'Google Striped Sleeve Heavyweight Hoodie',
+    brand: 'Google Apparel',
+    brandCategory: 'Google',
     category: 'Hoodies',
     itemGroup: 'hoodies',
     price: 58.00,
@@ -16,24 +17,31 @@ export const INITIAL_PRODUCTS: Product[] = [
     badge: 'New',
     imageType: 'hoodie',
     accentColor: '#4285F4',
-    description: 'Heavyweight 380 GSM brushed fleece engineered for supreme comfort during marathon coding sessions. Features subtle tone-on-tone embroidered Google Cloud hexagon emblem on the cuff and flat-knit drawstrings.',
+    imageUrl: '/assets/images/google_striped_hoodie_main_1788979308822.jpg',
+    galleryImages: [
+      '/assets/images/google_striped_hoodie_angle_1788979357741.jpg',
+      '/assets/images/google_striped_hoodie_main_1788979308822.jpg'
+    ],
+    description: 'Official Google Unisex Striped Sleeve Hoodie (SKU: GGOEGXXX2631). Heavyweight fleece engineered for supreme everyday comfort. Features iconic Google primary color stripes (blue, red, yellow, green) on both upper sleeves, flat-knit white drawstrings, and front kangaroo pocket.',
     features: [
-      'Heavyweight 80% combed cotton, 20% recycled polyester fleece',
-      'Double-lined cozy hood with flat-braided drawstrings',
-      'Hidden interior kangaroo pocket zip compartment for phone',
-      'Ribbed side stretch gussets for unrestricted movement'
+      'Heavyweight 80% combed organic cotton, 20% recycled polyester fleece',
+      'Iconic Google primary color stripes knit directly into both sleeves',
+      'Double-lined cozy hood with flat-braided contrasting white drawstrings',
+      'Deep kangaroo pouch pocket with reinforced bartack stitching',
+      'Pre-shrunk brushed interior fleece for long-lasting softness'
     ],
     sizes: ['S', 'M', 'L', 'XL', '2XL'],
     colors: [
-      { name: 'Cloud Grey', hex: '#E5E7EB', bgClass: 'bg-gray-200 border-gray-300' },
-      { name: 'Deep Space Blue', hex: '#1E293B', bgClass: 'bg-slate-800 border-slate-900' }
+      { name: 'Midnight Black', hex: '#111827', bgClass: 'bg-gray-950 border-black' },
+      { name: 'Cloud Grey', hex: '#E5E7EB', bgClass: 'bg-gray-200 border-gray-300' }
     ],
     inStock: true,
     ecoCertified: true
   },
   {
     id: 'prod-hoodie-13',
-    name: 'Google Minimalist Full-Zip Tech Hoodie',
+    sku: 'GGOEGXXX2600',
+    name: 'Google Embroidered Full-Zip Classic Hoodie',
     brand: 'Google Apparel',
     brandCategory: 'Google',
     category: 'Hoodies',
@@ -45,16 +53,22 @@ export const INITIAL_PRODUCTS: Product[] = [
     badge: 'Creator Pick',
     imageType: 'hoodie',
     accentColor: '#34A853',
-    description: 'Ultra-clean bonded scuba-knit full zip jacket with four-way stretch. Subtle matte silicone Google logo at hem and hidden headphone cord passthrough.',
-    features: [
-      'Scuba-knit bonded technical fleece with weather-resistant DWR finish',
-      'Full two-way YKK matte black zipper closure',
-      'Deep ergonomic thumbholes on sleeves for chilly mornings',
-      'Interior zippered media pocket'
+    imageUrl: '/assets/images/google_zip_hoodie_flatlay_1788979575801.jpg',
+    galleryImages: [
+      '/assets/images/google_zip_hoodie_model_1788979590697.jpg',
+      '/assets/images/google_zip_hoodie_flatlay_1788979575801.jpg'
     ],
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    description: 'Official Google Embroidered Full-Zip Hoodie (SKU: GGOEGXXX2600). Classic heavyweight fleece featuring the signature vibrant Google logo embroidered on the left chest, full-length silver zipper, and contrasting white drawstrings.',
+    features: [
+      'Heavyweight 80% combed organic cotton, 20% recycled polyester fleece',
+      'High-definition multi-color Google logo embroidered on left chest',
+      'Full-length heavy-duty silver metal zipper closure',
+      'Contrasting flat-braided white drawstrings and lined hood',
+      'Split front pouch pockets with reinforced stitching'
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
-      { name: 'Matte Obsidian', hex: '#111827', bgClass: 'bg-gray-950 border-black' },
+      { name: 'Midnight Black', hex: '#111827', bgClass: 'bg-gray-950 border-black' },
       { name: 'Heather Charcoal', hex: '#4B5563', bgClass: 'bg-gray-600 border-gray-700' }
     ],
     inStock: true,
@@ -62,28 +76,35 @@ export const INITIAL_PRODUCTS: Product[] = [
   },
   {
     id: 'prod-hoodie-14',
-    name: 'Chrome Offline Dino Embroidered Pullover',
+    sku: 'GGOEGXXX2647',
+    name: 'Google Minimalist Heather Grey Pullover Hoodie',
     brand: 'Google Apparel',
     brandCategory: 'Google',
     category: 'Hoodies',
     itemGroup: 'hoodies',
-    price: 52.00,
+    price: 54.00,
     rating: 4.9,
     reviewsCount: 340,
     badge: 'Staff Pick',
     imageType: 'hoodie',
-    accentColor: '#FBBC04',
-    description: 'Celebrate the iconic offline Chrome T-Rex runner game with this tactile pixel embroidery on premium organic cotton fleece.',
-    features: [
-      '100% GOTS-certified ring-spun organic cotton fleece',
-      'High-density pixel embroidery of the jumping Dino',
-      'Soft brushed interior with anti-pilling treatment',
-      'Pre-shrunk to retain tailored shape after repeated washing'
+    accentColor: '#9CA3AF',
+    imageUrl: '/assets/images/google_grey_hoodie_flatlay_1788979770839.jpg',
+    galleryImages: [
+      '/assets/images/google_grey_hoodie_model_1788979794450.jpg',
+      '/assets/images/google_grey_hoodie_flatlay_1788979770839.jpg'
     ],
-    sizes: ['S', 'M', 'L', 'XL', '2XL'],
+    description: 'Official Google Heather Grey Pullover Hoodie (SKU: GGOEGXXX2647). Clean, modern pullover crafted in super-soft brushed fleece with subtle white tonal Google branding embroidered on the chest and a cozy front kangaroo pouch pocket.',
+    features: [
+      '80% combed organic cotton, 20% recycled polyester brushed fleece',
+      'Tonal white Google logo embroidery on left chest',
+      'Double-layer generous hood with seamless comfort neck tape',
+      'Spacious front kangaroo pouch pocket with reinforced seams',
+      'Pre-shrunk 360 GSM fleece maintains shape through frequent wear'
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
       { name: 'Heather Grey', hex: '#D1D5DB', bgClass: 'bg-gray-300 border-gray-400' },
-      { name: 'Midnight Black', hex: '#1F2937', bgClass: 'bg-gray-800 border-gray-900' }
+      { name: 'Cloud White', hex: '#F3F4F6', bgClass: 'bg-gray-100 border-gray-300' }
     ],
     inStock: true,
     ecoCertified: true
@@ -92,145 +113,177 @@ export const INITIAL_PRODUCTS: Product[] = [
   // 2. Official Google T-Shirts & Graphic Tops
   {
     id: 'prod-tee-01',
-    name: 'Google Organic Cotton Quad-Logo Tee',
+    sku: 'GMSSGXXX1112',
+    name: 'Google NYC Subway Emblem Heather Grey Tee',
     brand: 'Google Apparel',
     brandCategory: 'Google',
     category: 'T-Shirts',
     itemGroup: 'tshirts',
-    price: 24.00,
-    originalPrice: 28.00,
+    price: 26.00,
+    originalPrice: 30.00,
     rating: 4.9,
     reviewsCount: 342,
-    badge: 'Eco-Organic',
+    badge: 'Member Exclusive',
     imageType: 'shirt',
     accentColor: '#1A73E8',
-    description: 'Crafted from 100% GOTS-certified ring-spun organic cotton with a tailored modern drape. Features the iconic embroidered four-color Google chest logo with soft water-based eco inks.',
+    imageUrl: '/assets/images/google_nyc_grey_tee_flatlay_1788980109063.jpg',
+    galleryImages: [
+      '/assets/images/google_nyc_grey_tee_model_1788980121361.jpg',
+      '/assets/images/google_nyc_grey_tee_flatlay_1788980109063.jpg'
+    ],
+    description: 'Official Google Store NYC Edition Tee (SKU: GMSSGXXX1112). Crafted from ultra-soft combed tri-blend jersey featuring the exclusive white NYC subway bullet emblem printed on the left chest with an itch-free tagless neck collar.',
     features: [
-      '100% GOTS-Certified Organic Combed Cotton',
-      'Pre-shrunk ring-spun jersey fabric (180 GSM)',
-      'Tagless itch-free heat-sealed neck label',
-      'Carbon-neutral certified manufacturing'
+      'Super-soft 50% combed ring-spun cotton, 50% recycled polyester',
+      'Official Google Store NYC edition subway bullet chest graphic',
+      'Tailored side-seam construction with double-needle hems',
+      'Printed interior tagless neck label for all-day comfort'
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
-      { name: 'Heather White', hex: '#F8F9FA', bgClass: 'bg-gray-100 border-gray-300' },
-      { name: 'Google Navy', hex: '#174EA6', bgClass: 'bg-blue-900 border-blue-950' },
-      { name: 'Charcoal Black', hex: '#202124', bgClass: 'bg-gray-900 border-black' }
+      { name: 'Heather Grey', hex: '#D1D5DB', bgClass: 'bg-gray-300 border-gray-400' },
+      { name: 'Pure White', hex: '#FFFFFF', bgClass: 'bg-white border-gray-300' }
     ],
     inStock: true,
     ecoCertified: true
   },
   {
     id: 'prod-tee-15',
-    name: 'Google Developer Sunset Gradient Tee',
+    sku: 'GGOEGXXX2645',
+    name: 'Google Classic Wordmark Terracotta Coral Tee',
     brand: 'Google Apparel',
     brandCategory: 'Google',
     category: 'T-Shirts',
     itemGroup: 'tshirts',
     price: 26.00,
-    rating: 4.8,
-    reviewsCount: 198,
+    rating: 4.9,
+    reviewsCount: 214,
     badge: 'New',
     imageType: 'shirt',
     accentColor: '#EA4335',
-    description: 'Limited summer edition tee featuring the Google I/O sunset gradient ribbon across a lightweight breathable fabric.',
-    features: [
-      'Super-soft tri-blend combed cotton and modal weave',
-      'Screen printed with eco-friendly breathable water inks',
-      'Reinforced shoulder seam binding for shape retention',
-      'Official Google Developer Conference edition'
+    imageUrl: '/assets/images/google_coral_tee_flatlay_1788980445206.jpg',
+    galleryImages: [
+      '/assets/images/google_coral_tee_model_1788980464080.jpg',
+      '/assets/images/google_coral_tee_flatlay_1788980445206.jpg'
     ],
-    sizes: ['S', 'M', 'L', 'XL'],
+    description: 'Official Google Classic Wordmark Tee (SKU: GGOEGXXX2645). Premium organic ring-spun cotton t-shirt in vintage terracotta coral red, featuring the clean white Google logo centered across the chest and tagless neck comfort.',
+    features: [
+      '100% combed ring-spun certified organic cotton jersey (185 GSM)',
+      'Crisp white Google logo centered across chest with durable screen print',
+      'Ribbed crewneck collar with reinforced shoulder-to-shoulder taping',
+      'Heat-transferred tagless neck label for seamless itch-free wear'
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
-      { name: 'Sand Chalk', hex: '#F5F5F4', bgClass: 'bg-stone-100 border-stone-300' },
-      { name: 'Slate Teal', hex: '#0F766E', bgClass: 'bg-teal-700 border-teal-800' }
+      { name: 'Terracotta Coral', hex: '#E05A47', bgClass: 'bg-red-500 border-red-600' },
+      { name: 'Pure White', hex: '#FFFFFF', bgClass: 'bg-white border-gray-300' }
     ],
     inStock: true,
     ecoCertified: true
   },
   {
     id: 'prod-tee-16',
-    name: 'Android 15 Bugdroid Pixel Graphic Tee',
-    brand: 'Android Collection',
-    brandCategory: 'Android',
+    sku: 'GGOEGXXX2639',
+    name: 'Google Subtle Wordmark Periwinkle Blue Tee',
+    brand: 'Google Apparel',
+    brandCategory: 'Google',
     category: 'T-Shirts',
     itemGroup: 'tshirts',
-    price: 25.00,
-    rating: 4.8,
-    reviewsCount: 147,
+    price: 26.00,
+    rating: 4.9,
+    reviewsCount: 165,
     badge: 'Creator Pick',
     imageType: 'shirt',
-    accentColor: '#34A853',
-    description: 'The updated 3D Android mascot in vivid pixel-art styling. Designed in partnership with the Android system design team.',
+    accentColor: '#818CF8',
+    imageUrl: '/assets/images/google_periwinkle_tee_flatlay_1788980712677.jpg',
+    galleryImages: [
+      '/assets/images/google_periwinkle_tee_model_1788980733968.jpg',
+      '/assets/images/google_periwinkle_tee_flatlay_1788980712677.jpg'
+    ],
+    description: 'Official Google Subtle Wordmark Tee (SKU: GGOEGXXX2639). Crafted in a soft periwinkle dusty blue tone with the minimalist white Google logo printed cleanly on the left chest. Features breathable organic combed cotton and tagless comfort.',
     features: [
-      '100% Ring-Spun organic jersey',
-      'High-resolution soft touch graphic print',
-      'Blind hem stitch on sleeves and bottom hem',
-      'Ribbed collar with Lycra stretch'
+      '100% combed organic ring-spun cotton jersey (180 GSM)',
+      'Subtle minimalist white Google logo printed on left chest',
+      'Soft-washed periwinkle blue garment dye with vintage drape',
+      'Tagless itch-free heat-sealed neck label'
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
-      { name: 'Android Green', hex: '#3DDC84', bgClass: 'bg-emerald-500 border-emerald-600' },
-      { name: 'Heather Grey', hex: '#E5E7EB', bgClass: 'bg-gray-200 border-gray-300' }
+      { name: 'Periwinkle Blue', hex: '#93A3DC', bgClass: 'bg-indigo-300 border-indigo-400' },
+      { name: 'Cloud White', hex: '#F9FAFB', bgClass: 'bg-gray-50 border-gray-300' }
     ],
     inStock: true,
     ecoCertified: true
   },
   {
     id: 'prod-tee-17',
-    name: 'YouTube "Broadcast Yourself" Vintage Tee',
-    brand: 'YouTube Gear',
-    brandCategory: 'YouTube',
+    sku: 'GGOEGXXX2632',
+    name: 'Google Cadet Collar Quarter-Zip Pullover',
+    brand: 'Google Apparel',
+    brandCategory: 'Google',
     category: 'T-Shirts',
     itemGroup: 'tshirts',
-    price: 24.00,
-    rating: 4.7,
-    reviewsCount: 220,
-    badge: 'Member Exclusive',
+    price: 48.00,
+    rating: 4.9,
+    reviewsCount: 184,
+    badge: 'Staff Pick',
     imageType: 'shirt',
-    accentColor: '#FF0000',
-    description: 'Nostalgic tribute to the original YouTube founding slogan with distressed retro lettering and red woven hem tag.',
+    accentColor: '#174EA6',
+    imageUrl: '/assets/images/google_quarterzip_pullover_flatlay_1788980964538.jpg',
+    galleryImages: [
+      '/assets/images/google_quarterzip_pullover_model_1788980977494.jpg',
+      '/assets/images/google_quarterzip_pullover_flatlay_1788980964538.jpg'
+    ],
+    description: 'Official Google Cadet Collar Quarter-Zip Pullover (SKU: GGOEGXXX2632). Versatile dark navy fleece pullover with mock neck collar, tonal reverse-coil quarter zipper, and clean white Google chest logo.',
     features: [
-      'Garment-dyed vintage wash cotton jersey',
-      'Distressed cracked water-base typography',
-      'Official YouTube play icon on back neck',
-      'Relaxed vintage streetwear fit'
+      'Heavyweight 8.5 oz ring-spun cotton and recycled poly fleece',
+      'Cadet mock collar with covered nylon zipper and metal pull',
+      'Precision white Google logo screen printed on left chest',
+      'Ribbed spandex cuffs and waistband for premium shape retention',
+      'Side-seamed athletic construction with twin-needle stitching'
     ],
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
-      { name: 'Washed Black', hex: '#262626', bgClass: 'bg-neutral-800 border-black' },
-      { name: 'Vintage Red', hex: '#DC2626', bgClass: 'bg-red-600 border-red-700' }
+      { name: 'Dark Navy', hex: '#1E293B', bgClass: 'bg-slate-800 border-slate-900' },
+      { name: 'Heather Charcoal', hex: '#374151', bgClass: 'bg-gray-700 border-gray-800' }
     ],
-    inStock: true
+    inStock: true,
+    ecoCertified: true
   },
 
   // 3. YouTube Gear & Creator Studio
   {
     id: 'prod-crew-06',
-    name: 'YouTube Creator Studio Vintage Crewneck',
+    sku: 'GGOEYXXX2636',
+    name: 'YouTube Play Icon Heather Grey Crewneck',
     brand: 'YouTube Gear',
     brandCategory: 'YouTube',
     category: 'YouTube Gear',
     itemGroup: 'youtube',
-    price: 46.00,
-    rating: 4.8,
-    reviewsCount: 204,
+    price: 48.00,
+    rating: 4.9,
+    reviewsCount: 228,
     badge: 'Top Rated',
     imageType: 'crewneck',
-    accentColor: '#EA4335',
-    description: 'Vintage-washed loopback French terry crewneck pullover designed for content creators. Features subtle red contrast collar stitch and minimalist chest print.',
+    accentColor: '#FF0000',
+    imageUrl: '/assets/images/youtube_grey_crewneck_flatlay_1788981142932.jpg',
+    galleryImages: [
+      '/assets/images/youtube_grey_crewneck_model_1788981162494.jpg',
+      '/assets/images/youtube_grey_crewneck_flatlay_1788981142932.jpg'
+    ],
+    description: 'Official YouTube Creator Studio Crewneck Sweatshirt (SKU: GGOEYXXX2636). Premium fleece pullover in athletic heather grey with the iconic red YouTube play button embroidered precisely on the left chest and a tagless neck label.',
     features: [
-      '100% French Terry Cotton loopback interior',
-      'Pre-washed garment dye finish for ultra-soft lived-in handfeel',
-      'Reinforced double-needle collar, hem, and cuffs',
-      'Official YouTube Creator verification hangtag'
+      '80% combed cotton, 20% polyester pre-shrunk fleece (320 GSM)',
+      'Iconic red YouTube play icon embroidery on chest with high-density satin stitch',
+      'Ribbed spandex collar, cuffs, and hem for enduring shape retention',
+      'Printed interior collar neck label for scratch-free comfort'
     ],
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
     colors: [
-      { name: 'Oatmeal Heather', hex: '#F3F4F6', bgClass: 'bg-stone-200 border-stone-300' },
-      { name: 'Washed Charcoal', hex: '#374151', bgClass: 'bg-gray-700 border-gray-800' }
+      { name: 'Heather Grey', hex: '#D1D5DB', bgClass: 'bg-gray-300 border-gray-400' },
+      { name: 'Oatmeal Chalk', hex: '#F5F5F4', bgClass: 'bg-stone-100 border-stone-300' }
     ],
-    inStock: true
+    inStock: true,
+    ecoCertified: true
   },
   {
     id: 'prod-bottle-02',

@@ -66,16 +66,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           onClick={() => onQuickView(product)}
           className="relative bg-gray-100 aspect-square flex items-center justify-center overflow-hidden cursor-pointer group-hover:bg-gray-50 transition-colors"
         >
-          {/* Top-Left Badge */}
-          {product.badge && (
-            <span
-              className={`absolute top-2.5 left-2.5 ${getBadgeColor(
-                product.badge
-              )} text-[10px] font-bold px-2 py-0.5 rounded shadow-xs z-10`}
-            >
-              {product.badge}
-            </span>
-          )}
+          {/* Top-Left Badges */}
+          <div className="absolute top-2.5 left-2.5 flex flex-col gap-1 z-10 items-start pointer-events-none">
+            {product.badge && (
+              <span
+                className={`${getBadgeColor(
+                  product.badge
+                )} text-[10px] font-bold px-2 py-0.5 rounded shadow-xs`}
+              >
+                {product.badge}
+              </span>
+            )}
+            {product.sku && (
+              <span className="bg-white/90 backdrop-blur-xs text-gray-700 font-mono text-[9px] px-1.5 py-0.5 rounded border border-gray-200/80 shadow-2xs font-semibold">
+                {product.sku}
+              </span>
+            )}
+          </div>
 
           {/* Top-Right Wishlist Button */}
           <button
