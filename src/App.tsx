@@ -28,6 +28,14 @@ import {
   CreatorAffiliate
 } from './types';
 import { SlidersHorizontal, CheckCircle, ArrowUpDown, ArrowLeft, Sparkles } from 'lucide-react';
+import {
+  trackAddToCart,
+  trackRemoveFromCart,
+  trackViewItem,
+  trackBeginCheckout,
+  trackPurchase,
+  trackPageView
+} from './utils/analytics';
 
 export default function App() {
   // Localization & Currency State
@@ -76,6 +84,11 @@ export default function App() {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
 
+  const handleOpenQuickView = (product: Product) => {
+    trackViewItem(product, currency);
+    setQuickViewProduct(product);
+  };
+
   // Discount & Promo state
   const [discountCode, setDiscountCode] = useState('');
   const [discountPercent, setDiscountPercent] = useState(0);
@@ -119,6 +132,23 @@ export default function App() {
     }
   }, []);
 
+  // Track virtual pageviews for SPA navigation across categories, brands, and search
+  useEffect(() => {
+    let path = '/';
+    let title = 'Google Merchandise Store';
+    if (searchQuery.trim()) {
+      path = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+      title = `Search: ${searchQuery.trim()} | Google Merchandise Store`;
+    } else if (activeCategory !== 'All') {
+      path = `/category/${encodeURIComponent(activeCategory.toLowerCase().replace(/\s+/g, '-'))}`;
+      title = `${activeCategory} | Google Merchandise Store`;
+    } else if (selectedBrand !== 'All Merch') {
+      path = `/brand/${encodeURIComponent(selectedBrand.toLowerCase().replace(/\s+/g, '-'))}`;
+      title = `${selectedBrand} | Google Merchandise Store`;
+    }
+    trackPageView(path, title);
+  }, [activeCategory, selectedBrand, searchQuery]);
+
   // Cart operations
   const handleAddToCart = (
     product: Product,
@@ -150,6 +180,7 @@ export default function App() {
     });
 
     showToast(`Added "${product.name}" to cart`);
+    trackAddToCart(product, quantity, selectedSize, selectedColor, currency);
   };
 
   const handleUpdateQuantity = (cartItemId: string, newQuantity: number) => {
@@ -165,6 +196,10 @@ export default function App() {
   };
 
   const handleRemoveItem = (cartItemId: string) => {
+    const itemToRemove = cartItems.find((item) => item.id === cartItemId);
+    if (itemToRemove) {
+      trackRemoveFromCart(itemToRemove, currency);
+    }
     setCartItems((prev) => prev.filter((item) => item.id !== cartItemId));
   };
 
@@ -309,6 +344,7 @@ export default function App() {
   const finalTotal = discountedSubtotal + shippingCost + tax;
 
   const handleOrderCompleted = (_order: OrderConfirmation) => {
+    trackPurchase(_order);
     setCartItems([]);
     setIsCartOpen(false);
   };
@@ -341,7 +377,7 @@ export default function App() {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         allProducts={products}
-        onSelectProduct={(p) => setQuickViewProduct(p)}
+        onSelectProduct={(p) => handleOpenQuickView(p)}
         currency={currency}
         onSelectCurrency={setCurrency}
         lang={lang}
@@ -407,7 +443,7 @@ export default function App() {
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
             onAddToCart={handleAddToCart}
-            onQuickView={(p) => setQuickViewProduct(p)}
+            onQuickView={(p) => handleOpenQuickView(p)}
             wishlist={wishlist}
             onToggleWishlist={handleToggleWishlist}
             currency={currency}
@@ -487,7 +523,7 @@ export default function App() {
                     key={product.id}
                     product={product}
                     onAddToCart={handleAddToCart}
-                    onQuickView={(p) => setQuickViewProduct(p)}
+                    onQuickView={(p) => handleOpenQuickView(p)}
                     isWishlisted={wishlist.some((w) => w.id === product.id)}
                     onToggleWishlist={handleToggleWishlist}
                     currency={currency}
@@ -531,6 +567,7 @@ export default function App() {
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
         onProceedToCheckout={() => {
+          trackBeginCheckout(cartItems, finalTotal, currency);
           setIsCartOpen(false);
           setIsCheckoutOpen(true);
         }}
@@ -589,7 +626,7 @@ export default function App() {
         currency={currency}
         lang={lang}
         allProducts={products}
-        onQuickViewProduct={(p) => setQuickViewProduct(p)}
+        onQuickViewProduct={(p) => handleOpenQuickView(p)}
       />
 
       {/* Mobile Bottom Toolbar */}
